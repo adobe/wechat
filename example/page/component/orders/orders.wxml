@@ -1,0 +1,20 @@
+<view class="main">
+    
+    <view class="orders-box">
+    <view wx:for="{{orders}}" wx:key="index">
+        <view wx:if="{{item.num > 0}}">
+          <view  class="orders-list">
+            <image class="orders-thumb" src="{{item.image}}"></image>
+            <view class="orders-pro-name">{{item.title}}</view>
+            <view class="orders-pro-price">￥{{item.price}}</view>
+            <view class="orders-count-num">×{{item.num}}</view>
+          </view>
+        </view>
+    </view>
+    </view>
+
+    <view class="orders-footer">
+        <view class="orders-footer-total">付款合计：￥ 1.00</view>
+        <view class="orders-footer-btn" bindtap="toPay">确认订单</view>
+    </view>
+</view>

@@ -1,0 +1,24 @@
+<view class="main">
+    <view class="header">
+        <image src="/image/images.png" class="thumb"></image>
+        <text class="nickname">超级用户</text>
+    </view>
+    <view wx:if="{{orders.length > 0}}">
+    <view class="orders-box">
+        <view class="orders">我的订单</view>
+        <view class="orders-number"> 订单编号：A4561245678641685</view>
+        <view class="orders-list" wx:for="{{orders}}" wx:key="index">
+            <view class="orders-detail">
+                <image src="{{item.image}}"></image>
+                <view class="">{{item.name}}</view>
+                <view class="">{{item.count}}</view>
+                <text class="orders-status">{{item.status}}</text>
+            </view>    
+        </view>
+        <view class="orders-footer">
+                <text>实付：￥ 1.00</text>
+                <button size="mini" class="orders-btn" bindtap="payOrders">付款</button>
+        </view>
+    </view>
+    </view>
+</view>

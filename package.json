@@ -1,0 +1,50 @@
+{
+  "name": "aep-wx-sdk",
+  "version": "0.0.1",
+  "description": "#### Development:",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "nyc mocha --require babel-core/register ./test/src/*/*.js",
+    "mocha-es6": "mocha --require babel-core/register ./test/src/*/*.js",
+    "roolup-sdk": "rollup ./src/AdobeSDK.js --file bundle.js --format cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.corp.adobe.com:dms-mobile/wechat.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "del": "^4.1.1",
+    "gulp": "^4.0.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^5.0.0",
+    "gulp-mocha": "^6.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-rollup": "^2.16.2",
+    "gulp-shell": "^0.7.0",
+    "gulp-uglify": "^3.0.2",
+    "mocha": "^6.1.4",
+    "module-concat": "^2.3.0",
+    "nyc": "^14.0.0",
+    "sinon": "^7.3.2"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text",
+      "html"
+    ]
+  }
+}
