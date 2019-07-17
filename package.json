@@ -8,7 +8,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "nyc mocha --require babel-core/register ./test/src/*/*.js",
+    "test": "nyc mocha --require babel-core/register ./test/src/*/*test.js ./test/src/*test.js",
+    "functional-test": "mocha --require babel-core/register ./test/src/*functional.js",
     "mocha-es6": "mocha --require babel-core/register ./test/src/*/*.js",
     "roolup-sdk": "rollup ./src/AdobeSDK.js --file bundle.js --format cjs"
   },
