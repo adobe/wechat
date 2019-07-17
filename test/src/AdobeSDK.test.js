@@ -18,6 +18,14 @@ const {
 } = require('../../src/Common/InvalidArgumentException');
 
 describe('test ./AdobeSDK.js ', () => {
+    beforeEach(() => {
+        if (AdobeSDK.amsdk.started) {
+            delete require.cache[require.resolve('../../src/AdobeSDK')];
+            AdobeSDK = require('../../src/AdobeSDK');
+            assert(!AdobeSDK.amsdk.started);
+        }
+        if (wx.map) wx.map.clear();
+    });
     describe('# AdobeSDK - initialization ', () => {
         it('should initialize AdobeSDK, if the users provide valid configuraions', () => {
             let WxStub = sinon.stub(wx, 'request');
@@ -36,11 +44,7 @@ describe('test ./AdobeSDK.js ', () => {
             WxStub.restore();
         });
         it('should print error log and not call any internal function, if the users provide invalid configurations', () => {
-            if (AdobeSDK.amsdk.started) {
-                delete require.cache[require.resolve('../../src/AdobeSDK')];
-                AdobeSDK = require('../../src/AdobeSDK');
-                assert(!AdobeSDK.amsdk.started);
-            }
+
             let WxStub = sinon.stub(wx, 'request');
             WxStub.returns(0);
             AdobeSDK.setDebugModeEnabled(true);
@@ -60,26 +64,53 @@ describe('test ./AdobeSDK.js ', () => {
             WxStub.restore();
         });
     });
-    // describe('# Send Analytics hits with lifeycle data', () => {
-    //     it('should send analytics hits (InstallEvent & LaunchEvent), if this is the first time to launch test app', () => {
+    describe('# Send Analytics hits with lifeycle data', () => {
+        it('should send analytics hits (InstallEvent & LaunchEvent), if this is the first time to launch test app', (done) => {
+            let onShowFn = null;
+            let WxStub = sinon.stub(wx, 'request').callsFake(obj => {
+                if (obj.url === 'https://test.sc.adobedc.cn/id') {
+                    obj.success({
+                        data: {
+                            id: '1234-5678-90'
+                        }
+                    });
+                }
+                if (obj.url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0-beta')) {
+                    assert(obj.data.includes('InstallEvent=InstallEvent'));
+                    WxStub.restore();
+                    done();
+                }
+            });
+            sinon.stub(wx, 'onAppShow').callsFake(fn => {
+                onShowFn = fn;
+            });
+            AdobeSDK.init({
+                "analytics.server": "test.sc.adobedc.cn",
+                "analytics.rsids": "mobile5wechat.explore",
+                "app.id": "adobe-demo",
+                "app.version": "0.0.0.1",
+                "analytics.offlineEnabled": true,
+                "session.timeout": 5
+            });
+            onShowFn();
+            // WxStub.restore();
+        });
+        // it('should send analytcis hits (LaunchEvent), if this is the second time to launch test app', () => {
 
-    //     });
-    //     it('should send analytcis hits (LaunchEvent), if this is the second time to launch test app', () => {
+        // });
+        // it('should not send analytics hits (LaunchEvent), if we relaunch test app before session timeout', () => {
 
-    //     });
-    //     it('should not send analytics hits (LaunchEvent), if we relaunch test app before session timeout', () => {
+        // });
+        // it('should send analytics hits (LaunchEvent), if we relaunch test app after session timeout', () => {
 
-    //     });
-    //     it('should send analytics hits (LaunchEvent), if we relaunch test app after session timeout', () => {
+        // });
+        // it('should send analytics hits (LaunchEvent), if we relaunch test app after an app crash', () => {
 
-    //     });
-    //     it('should send analytics hits (LaunchEvent), if we relaunch test app after an app crash', () => {
+        // });
+        // it('should send analytics hits (UpgradeEvent & LaunchEvent), if we bump up version of test app ( 0.0.1 - 0.0.2 )', () => {
 
-    //     });
-    //     it('should send analytics hits (UpgradeEvent & LaunchEvent), if we bump up version of test app ( 0.0.1 - 0.0.2 )', () => {
-
-    //     });
-    // });
+        // });
+    });
     // describe('# public API : track action & track state', () => {
     //     it('should send analytics hits (track action), if we call public API => trackAction()', () => {
 
