@@ -37,4 +37,6 @@ jobs:
       - run: ./node_modules/gulp/bin/gulp.js lint
       # run tests!
       - run: npm test
+      # run functional tests!
+      - run: npm run functional-test
       
