@@ -221,19 +221,23 @@ describe('AdobeSDK Functional Tests  ', () => {
                         assert(obj.data.includes('InstallEvent=InstallEvent'));
                         assert(obj.data.includes('LaunchEvent=LaunchEvent'));
                         onHideFn();
-                        if (AdobeSDK.amsdk.started) {
-                            delete require.cache[require.resolve('../../src/AdobeSDK')];
-                            AdobeSDK = require('../../src/AdobeSDK');
-                            assert(!AdobeSDK.amsdk.started);
-                            AdobeSDK.init({
-                                "analytics.server": "test.sc.adobedc.cn",
-                                "analytics.rsids": "mobile5wechat.explore",
-                                "app.id": "adobe-demo",
-                                "app.version": "0.0.0.2",
-                                "analytics.offlineEnabled": true,
-                                "session.timeout": 1
-                            });
-                        }
+                        setTimeout(() => {
+                            if (AdobeSDK.amsdk.started) {
+                                delete require.cache[require.resolve('../../src/AdobeSDK')];
+                                AdobeSDK = require('../../src/AdobeSDK');
+                                assert(!AdobeSDK.amsdk.started);
+                                AdobeSDK.init({
+                                    "analytics.server": "test.sc.adobedc.cn",
+                                    "analytics.rsids": "mobile5wechat.explore",
+                                    "app.id": "adobe-demo",
+                                    "app.version": "0.0.0.2",
+                                    "analytics.offlineEnabled": true,
+                                    "session.timeout": 1
+                                });
+                                onShowFn();
+                            }
+                        }, 100);
+
                     }
                     if (hits === 2) {
                         assert(obj.data.includes('UpgradeEvent=UpgradeEvent'));
@@ -263,7 +267,7 @@ describe('AdobeSDK Functional Tests  ', () => {
                 "session.timeout": 10
             });
             onShowFn();
-            setTimeout(() => { onShowFn(); }, 1800);
+
         });
     });
     describe('# public API : track action & track state', () => {

@@ -281,6 +281,9 @@ Lifecycle.prototype._sessionLength = function (session) {
 };
 
 Lifecycle.prototype._showAppType = function (now, lastHide, timeout) {
+    if (this.contextdata['a.UpgradeEvent'] === 'UpgradeEvent') {
+        return SHOW_TYPE_SESSION_NEW;
+    }
     if ((!lastHide) || (Math.round((now - lastHide) / 1000) > timeout)) {
         return SHOW_TYPE_SESSION_NEW;
     }
