@@ -15,9 +15,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.corp.adobe.com:dms-mobile/wechat.git"
+    "url": "https://github.com/adobe/wechat"
   },
-  "author": "",
+  "author": "Adobe",
   "license": "Apache-2.0",
   "devDependencies": {
     "babel-cli": "^6.26.0",
