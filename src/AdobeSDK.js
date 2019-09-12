@@ -147,7 +147,7 @@ class AMSDK {
 }
 
 /**
- *  Adobe SDK for WeChat Mini Program - v1.0.0-beta
+ *  Adobe SDK for WeChat Mini Program - v1.0.0
  */
 
 class AdobeSDK {

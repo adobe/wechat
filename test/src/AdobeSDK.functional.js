@@ -34,7 +34,7 @@ describe('AdobeSDK Functional Tests  ', () => {
                         }
                     });
                 }
-                if (obj.url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0-beta')) {
+                if (obj.url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0')) {
                     assert(obj.data.includes('InstallEvent=InstallEvent'));
                     assert(obj.data.includes('LaunchEvent=LaunchEvent'));
                     assert(obj.data.includes('OSVersion=ios%2010.12&DeviceName=iphone%20xr&Resolution=800x600&RunMode=Application&PlatformVersion=wechat-1.5.0&AppId=adobe-demo%20(0.0.0.1)'));
@@ -81,7 +81,7 @@ describe('AdobeSDK Functional Tests  ', () => {
                         }
                     });
                 }
-                if (obj.url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0-beta')) {
+                if (obj.url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0')) {
                     hits++;
                     obj.success({});
                     if (hits === 1) onHideFn();
@@ -124,7 +124,7 @@ describe('AdobeSDK Functional Tests  ', () => {
                         }
                     });
                 }
-                if (obj.url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0-beta')) {
+                if (obj.url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0')) {
                     hits++;
                     obj.success({});
                     if (hits === 1) {
@@ -171,7 +171,7 @@ describe('AdobeSDK Functional Tests  ', () => {
                         }
                     });
                 }
-                if (obj.url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0-beta')) {
+                if (obj.url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0')) {
                     hits++;
                     obj.success({});
                     if (hits === 1) {
@@ -214,7 +214,7 @@ describe('AdobeSDK Functional Tests  ', () => {
                         }
                     });
                 }
-                if (obj.url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0-beta')) {
+                if (obj.url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0')) {
                     hits++;
                     obj.success({});
                     if (hits === 1) {
@@ -282,7 +282,7 @@ describe('AdobeSDK Functional Tests  ', () => {
                         }
                     });
                 }
-                if (obj.url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0-beta')) {
+                if (obj.url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0')) {
                     hits++;
                     obj.success({});
                     if (hits === 1) {
@@ -334,7 +334,7 @@ describe('AdobeSDK Functional Tests  ', () => {
                         }
                     });
                 }
-                if (obj.url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0-beta')) {
+                if (obj.url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0')) {
                     hits++;
                     obj.success({});
                     if (hits === 1) {
