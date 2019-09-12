@@ -119,7 +119,7 @@ describe('test Analytics/Analytics.js', () => {
         it('should return url', () => {
             let analytics = buildAnalytics();
             let url = analytics._getUrl(DEFAULT_CONFIGURATION.data.contextdata);
-            assert(url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0-beta/s'));
+            assert(url.startsWith('https://test.sc.adobedc.cn/b/ss/mobile5wechat.explore/0/wechat-1.0.0/s'));
         });
     });
     describe('# process(event)', () => {
