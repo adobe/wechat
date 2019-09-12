@@ -73,6 +73,14 @@ describe('test Analytics/ContextDataUtil.js', () => {
             data.set('key_1', 'val_1');
             assert.equal(serializeAnalyticsRequest(data, null), "ndh=1&c.&a.&key1=val1&key2=val2&b.&key1=val1&key2=val2&.b&.a&key_1=val_1&.c");
         });
+        it('should pass, when input data contains keys like <a.b.c> & <a.b>', () => {
+            let data = new Map();
+            data.set('a.key1', 'val1');
+            data.set('a.key2', 'val2');
+            data.set('a.b', 'val1');
+            data.set('a.b.c', 'val2');
+            assert.equal(serializeAnalyticsRequest(data, null), "ndh=1&c.&a.&key1=val1&key2=val2&b=val1&b.&c=val2&.b&.a&.c");
+        });
         it('should pass, when input data contains special keys like <&&skey1>', () => {
             let data = new Map();
             data.set('a.key1', 'val1');
@@ -115,32 +123,32 @@ describe('test Analytics/ContextDataUtil.js', () => {
         it('should return a right object, when input with valid string', () => {
             const obj = {};
             _applyPropertyToObj(['a', 'b', 'c'], obj, 'xxx');
-            assert.deepEqual(obj, { a: { b: { c: 'xxx' } } });
+            assert.deepEqual(obj, { a: { b: { c: { '#node_value': 'xxx' } } } });
         });
     });
     describe('# _stringifyObj()', () => {
         it('should reutrn string, when input obj and key are valid', () => {
             const obj = {
                 a: {
-                    b: 'abbb',
-                    c: 'accc'
+                    b: { '#node_value': 'abbb' },
+                    c: { '#node_value': 'accc' }
                 },
-                b: 'bbb',
-                c: 'ccc'
+                b: { '#node_value': 'bbb' },
+                c: { '#node_value': 'ccc' }
             };
             assert.equal(_stringifyObj(obj, 'c'), '&c.&a.&b=abbb&c=accc&.a&b=bbb&c=ccc&.c');
         });
         it('should reutrn string, when input obj and key are valid ..', () => {
             const obj = {
                 a: {
-                    b: 'abbb',
-                    c: 'accc'
+                    b: { '#node_value': 'abbb' },
+                    c: { '#node_value': 'accc' }
                 },
-                b: 'bbb',
-                c: 'ccc',
+                b: { '#node_value': 'bbb' },
+                c: { '#node_value': 'ccc' },
                 d: {
-                    x: 'dxxx',
-                    y: 'dyyy'
+                    x: { '#node_value': 'dxxx' },
+                    y: { '#node_value': 'dyyy' }
                 }
             };
             assert.equal(_stringifyObj(obj, 'c'), '&c.&a.&b=abbb&c=accc&.a&b=bbb&c=ccc&d.&x=dxxx&y=dyyy&.d&.c');
@@ -148,16 +156,16 @@ describe('test Analytics/ContextDataUtil.js', () => {
         it('should reutrn string, when input obj and key are valid (depth=2)', () => {
             const obj = {
                 a: {
-                    b: 'abbb',
-                    c: 'accc'
+                    b: { '#node_value': 'abbb' },
+                    c: { '#node_value': 'accc' }
                 },
-                b: 'bbb',
-                c: 'ccc',
+                b: { '#node_value': 'bbb' },
+                c: { '#node_value': 'ccc' },
                 d: {
-                    x: 'dxxx',
+                    x: { '#node_value': 'dxxx' },
                     y: {
-                        a: 'dyaaa',
-                        b: 'dybbb'
+                        a: { '#node_value': 'dyaaa' },
+                        b: { '#node_value': 'dybbb' }
                     }
                 }
             };
@@ -173,22 +181,38 @@ describe('test Analytics/ContextDataUtil.js', () => {
                 'b': 'bbb',
                 'c': 'ccc',
                 'd.x': 'dxxx',
+                'd.y': 'dddd',
                 'd.y.a': 'dyaaa',
                 'd.y.b': 'dybbb'
             }));
 
             assert.deepEqual(_convertDataMapToObj(map), {
                 a: {
-                    b: 'abbb',
-                    c: 'accc'
+                    b: {
+                        '#node_value': 'abbb'
+                    },
+                    c: {
+                        '#node_value': 'accc'
+                    }
                 },
-                b: 'bbb',
-                c: 'ccc',
+                b: {
+                    '#node_value': 'bbb'
+                },
+                c: {
+                    '#node_value': 'ccc'
+                },
                 d: {
-                    x: 'dxxx',
+                    x: {
+                        '#node_value': 'dxxx'
+                    },
                     y: {
-                        a: 'dyaaa',
-                        b: 'dybbb'
+                        "#node_value": "dddd",
+                        a: {
+                            '#node_value': 'dyaaa'
+                        },
+                        b: {
+                            '#node_value': 'dybbb'
+                        }
                     }
                 }
             });
