@@ -15,6 +15,7 @@ const {
     logService
 } = require('../Platform/PlatformService');
 const LOG = logService;
+const NODE_VALUE = '#node_value';
 
 function mapToURLParameter(map) {
     let kvPairs = [];
@@ -58,7 +59,8 @@ function _convertDataMapToObj(map) {
                 let arry = k.split('\.');
                 _applyPropertyToObj(arry, obj, v);
             } else {
-                obj[k] = v;
+                obj[k] = {};
+                obj[k][NODE_VALUE] = v;
             }
         });
     }
@@ -76,7 +78,12 @@ function _applyPropertyToObj(keyList, obj, value) {
     let firstItem = keyList.shift();
     if (firstItem) {
         if (!keyList[0]) {
-            obj[firstItem] = value;
+            if (!obj[firstItem]) {
+                obj[firstItem] = {};
+                obj[firstItem][NODE_VALUE] = value;
+            } else {
+                obj[firstItem][NODE_VALUE] = value;
+            }
             return;
         } else {
             if (!obj[firstItem]) obj[firstItem] = {};
@@ -88,21 +95,34 @@ function _applyPropertyToObj(keyList, obj, value) {
 
 /**
  * 
- * @param {*} obj {a:{b:{c:'xxx'}}}
+ * @param {*} obj {a:{b:{c:{'#node_value':'xxx'}}}
  * @param {String} mask 'c'
  * @returns {String} '&c.&a.&b.&c=xxx&.b&.a&.c'
  */
 
 function _stringifyObj(obj, mask) {
+    if (!(typeof obj == 'object')) {
+        return '';
+    }
     let str = '';
+    let nodeValue = '';
+    if (obj.hasOwnProperty(NODE_VALUE)) {
+        nodeValue = '&' + mask + '=' + encodeURIComponent(obj[NODE_VALUE]);
+    }
+    if (_isLeaf(obj)) {
+        return nodeValue;
+    }
+
     Object.keys(obj).forEach(key => {
-        if (typeof obj[key] == 'object') {
+        if (key != NODE_VALUE)
             str += _stringifyObj(obj[key], key);
-        } else {
-            str = str + '&' + key + '=' + encodeURIComponent(obj[key]);
-        }
     });
-    return '&' + mask + '.' + str + '&.' + mask;
+
+    return nodeValue + '&' + mask + '.' + str + '&.' + mask;
+}
+function _isLeaf(obj) {
+    if ((Object.keys(obj).length == 1) && (Object.keys(obj)[0] == NODE_VALUE)) return true;
+    return false;
 }
 
 

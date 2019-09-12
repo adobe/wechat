@@ -18,6 +18,14 @@ const {
 } = require('../../src/Common/InvalidArgumentException');
 
 describe('test ./AdobeSDK.js ', () => {
+    beforeEach(() => {
+        if (AdobeSDK.amsdk.started) {
+            delete require.cache[require.resolve('../../src/AdobeSDK')];
+            AdobeSDK = require('../../src/AdobeSDK');
+            assert(!AdobeSDK.amsdk.started);
+        }
+        if (wx.map) wx.map.clear();
+    });
     describe('# AdobeSDK - initialization ', () => {
         it('should initialize AdobeSDK, if the users provide valid configuraions', () => {
             let WxStub = sinon.stub(wx, 'request');
@@ -36,11 +44,7 @@ describe('test ./AdobeSDK.js ', () => {
             WxStub.restore();
         });
         it('should print error log and not call any internal function, if the users provide invalid configurations', () => {
-            if (AdobeSDK.amsdk.started) {
-                delete require.cache[require.resolve('../../src/AdobeSDK')];
-                AdobeSDK = require('../../src/AdobeSDK');
-                assert(!AdobeSDK.amsdk.started);
-            }
+
             let WxStub = sinon.stub(wx, 'request');
             WxStub.returns(0);
             AdobeSDK.setDebugModeEnabled(true);
@@ -60,34 +64,7 @@ describe('test ./AdobeSDK.js ', () => {
             WxStub.restore();
         });
     });
-    // describe('# Send Analytics hits with lifeycle data', () => {
-    //     it('should send analytics hits (InstallEvent & LaunchEvent), if this is the first time to launch test app', () => {
 
-    //     });
-    //     it('should send analytcis hits (LaunchEvent), if this is the second time to launch test app', () => {
-
-    //     });
-    //     it('should not send analytics hits (LaunchEvent), if we relaunch test app before session timeout', () => {
-
-    //     });
-    //     it('should send analytics hits (LaunchEvent), if we relaunch test app after session timeout', () => {
-
-    //     });
-    //     it('should send analytics hits (LaunchEvent), if we relaunch test app after an app crash', () => {
-
-    //     });
-    //     it('should send analytics hits (UpgradeEvent & LaunchEvent), if we bump up version of test app ( 0.0.1 - 0.0.2 )', () => {
-
-    //     });
-    // });
-    // describe('# public API : track action & track state', () => {
-    //     it('should send analytics hits (track action), if we call public API => trackAction()', () => {
-
-    //     });
-    //     it('should send analytics hits (track state), if we call public API => trackState()', () => {
-
-    //     });
-    // });
     // describe('# public API : setDebugLoggingEnabled()', () => {
     //     it('should not print debug log, if setDebugLoggingEnabled(false)', () => {
 
