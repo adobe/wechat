@@ -18,8 +18,8 @@ App({
     AdobeSDK.setDebugLoggingEnabled(true)
     AdobeSDK.setDebugModeEnabled(true);
     AdobeSDK.init({
-      "analytics.server": "test.sc.adobedc.cn",
-      "analytics.rsids": "mobile5wechat.explore",
+      "analytics.server": "demo",
+      "analytics.rsids": "demo",
       "app.id": "adobe-demo",
       "app.version": "0.0.0.3",
       "analytics.offlineEnabled": true,
