@@ -9,4 +9,4 @@ the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTA
 OF ANY KIND, either express or implied. See the License for the specific language
 governing permissions and limitations under the License.
 */
-module.exports.sdk_version = '1.0.0-beta';
+module.exports.sdk_version = '1.0.0';

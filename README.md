@@ -30,49 +30,7 @@ This `JS Library` is used to integrate Adobe's Experience Cloud solutions to you
 
 ### Public API :
 
-- #### AdobeSDK.init (configurations)
-
-```
-AdobeSDK.init({
-      "analytics.server": "test.sc.adobedc.cn",      //required
-      "analytics.rsids": "mobile5wechat.explore",    //required
-      "app.id": "adobe-demo",                        //required
-      "app.version": "0.0.0.1",                      //optional, default value = ''
-      "analytics.offlineEnabled": true,              //optional, default value = false
-      "session.timeout": 30                          //optional, default value = 30
-    });
-```
-
-`analytics.offlineEnabled` timestamp(ts) will be included in Analytics request if this config is enabled
-
-- #### AdobeSDK.setDebugLoggingEnabled(flag)
-
-
-```
-AdobeSDK.setDebugLoggingEnabled(true)
-```
-
-
-- #### AdobeSDK.setDebugModeEnabled(flag)
-
-By default, Adobe WeChat SDK will swallow internal exceptions and print error message in console log. If you want to let SDK throw those exceptions, you need to enable debug mode.
-
-```
-AdobeSDK.setDebugModeEnabled(true)
-```
-
-- #### AdobeSDK.trackAction(actionName, contextData)
-
-```
-AdobeSDK.trackAction("action", { "example.key": "value" });
-```
-
-
-- #### AdobeSDK.trackState(stateName, contextData)
-
-```
-AdobeSDK.trackState("state", { "example.key": "value" });
-```
+[Git book](https://aep-sdks.gitbook.io/docs/beta/adobe-experience-platform-mini-programs-sdk)
 
 ### Development Environment:
 
