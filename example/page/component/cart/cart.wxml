@@ -28,11 +28,11 @@
             <view class="order-icon">
                 <navigator url="../orders/orders"><image src="/image/icon3.png"></image></navigator>
             </view>
-            <text>全选</text>
+            <text>Select All</text>
             <text class="cart-toatl-price">￥{{totalPrice}}</text>
         </view>
     </view>
     <view wx:else>
-        <view class="cart-no-data">购物车是空的哦~</view>
+        <view class="cart-no-data">Your Shopping Cart is Empty.</view>
     </view>
 </view>

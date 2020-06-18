@@ -43,8 +43,8 @@ Page({
       })
     }else{
       wx.showModal({
-        title:'提示',
-        content:'请填写完整资料',
+        title:'Hint',
+        content:'Please input full information',
         showCancel:false
       })
     }

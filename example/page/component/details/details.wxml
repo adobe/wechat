@@ -11,7 +11,7 @@
         
         <view class="goods-operation">
             <text class="goods-operation-add" bindtap="lessCount">-</text>
-            <text class="goods-operation-num">数量  {{num}}</text>
+            <text class="goods-operation-num">Quantity:  {{num}}</text>
             <text class="goods-operation-add" bindtap="addCount">+</text>
             <image src="/image/cart1.png"  class="goods-cart-img" bindtap="addNumber"></image>
         </view>
@@ -21,9 +21,9 @@
         <view class="goods-price">￥ {{goods.price}}</view>
     </view>
     <view class="goods-tab-box">
-        <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">商品详情</view>
-        <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">产品参数</view>
-        <view class="goods-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">售后保障</view>
+        <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">Product Details</view>
+        <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">Product Parameters</view>
+        <view class="goods-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">Support</view>
         <view class="goods-content">
             <view wx:if="{{curIndex === 0}}">{{goods.detail}}</view>
             <view wx:if="{{curIndex === 1}}">{{goods.parameter}}</view>

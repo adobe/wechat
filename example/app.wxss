@@ -11,7 +11,7 @@ page {
 .page-header {
   display: flex;
   font-size: 32rpx;
-  color: #aaa;
+  color: #aa0000;
   justify-content: center;
   margin-top: 50rpx;
 }

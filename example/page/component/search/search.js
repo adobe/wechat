@@ -14,25 +14,25 @@ let timeId = null;
 Page({
     data: {
         history: [],
-        hot: ['新鲜芹菜', '大红枣', '滋补桂圆干'],
+        hot: ['PhotoShop', 'Adobe AEM', 'Adobe AI', 'Adobe AEM'],
         result: [
             {
                 id: 1,
                 url: '../details/details',
                 thumb: '/image/s4.png',
-                title: '瓜子 100g',
-                price: 0.01
+                title: 'PhotoShop 7.0',
+                price: 998
             },
             {
                 id: 2,
                 url: '../details/details',
                 thumb: '/image/s5.png',
-                title: '新鲜芹菜 500g',
-                price: 0.02
+                title: 'Adobe AI',
+                price: 9000
             }
         ],
         showKeywords: false,
-        keywords: ['山东肚脐橙', '湖南冰糖橙', '麻涌香蕉', '冰糖心苹果'],
+        keywords: ['PhotoShop', 'Adobe AI', 'Adobe AEM', 'Adobe AA'],
         value: '',
         showResult: false,
     },

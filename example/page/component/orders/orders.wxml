@@ -14,7 +14,7 @@
     </view>
 
     <view class="orders-footer">
-        <view class="orders-footer-total">付款合计：￥ 1.00</view>
-        <view class="orders-footer-btn" bindtap="toPay">确认订单</view>
+        <view class="orders-footer-total">Total Payment：￥ 100,000.00</view>
+        <view class="orders-footer-btn" bindtap="toPay">Confirm Order</view>
     </view>
 </view>
