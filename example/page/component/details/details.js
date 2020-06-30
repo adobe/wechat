@@ -35,7 +35,7 @@ Page({
         price: item.price,
         stock: 'In Stock',
         detail: 'This is the detail information of the product。',
-        parameter: '125g/item',
+        parameter: '$998/item',
         service: 'Returning goods service is unsupported.'
       }
     });
