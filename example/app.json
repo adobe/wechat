@@ -12,7 +12,7 @@
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "Product Vendor",
-    "navigationBarBackgroundColor": "#AB956D",
+    "navigationBarBackgroundColor": "#aa0000",
     "backgroundColor": "#eeeeee",
     "enablePullDownRefresh": true,
     "fontWeight": "bold"
