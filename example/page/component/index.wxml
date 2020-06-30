@@ -10,12 +10,12 @@
         <navigator url="search/search">
             <view class="search-text">
                 <icon class="weui-icon-search_in-box search-icon" type="search" size="14"></icon>
-                搜 索
+                Search
             </view>
         </navigator>
     </view>
     <view class="selected">
-        <view class="select-title"><text>精选主题</text></view>
+        <view class="select-title"><text>Featured</text></view>
         <view class="select-top">
             <view class="select-top-small">
                 <navigator url="list/list">
@@ -30,13 +30,13 @@
         </view>
     </view>
     <view class="newest">
-        <view class="newest-title"><text>最近新品</text></view>
+        <view class="newest-title"><text>What's New</text></view>
         <view class="newest-box">
             <view class="newest-list" wx:for="{{itemList}}" wx:key="{{index}}">
                 <navigator url="details/details?sku={{item.sku}}">
                     <image src="{{item.image}}"></image>
                     <view class="newest-text"><text>{{item.title}}</text></view>
-                    <view class="newest-text"><text>￥ {{item.price}}</text></view>
+                    <view class="newest-text"><text>$ {{item.price}}</text></view>
                 </navigator>
             </view>
         </view>

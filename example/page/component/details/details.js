@@ -33,10 +33,10 @@ Page({
         title: item.title,
         name: item.name,
         price: item.price,
-        stock: '有货',
-        detail: '这里是梨花带雨详情。',
-        parameter: '125g/个',
-        service: '不支持退货'
+        stock: 'In Stock',
+        detail: 'Details',
+        parameter: '1',
+        service: 'No return'
       }
     });
     AdobeSDK.trackState('ProductPage-' + item.name, {});

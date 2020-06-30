@@ -38,8 +38,8 @@ Page({
     console.log(flag)
     if (flag){
       wx.showModal({
-        title: '支付提示',
-        content: '支付成功',
+        title: 'Payment Tips',
+        content: 'Payment Successful',
         showCancel: false
       })
     }else{
@@ -54,8 +54,8 @@ Page({
         },
         fail: function (res) {
           wx.showModal({
-            title: '支付提示',
-            content: '支付成功',
+            title: 'Payment Tips',
+            content: 'Payment Successful',
             showCancel: false
           })
         }

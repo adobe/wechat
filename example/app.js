@@ -55,10 +55,10 @@ App({
   globalData: {
     hasLogin: false,
     itemList: [
-      { sku: 0, title: '瓜子 100g', name: 'Seeds', image: '/image/s4.png', price: 0.01, num: 0, selected: true },
-      { sku: 1, title: '芹菜 500g', name: 'Celery', image: '/image/s5.png', price: 0.25, num: 0, selected: true },
-      { sku: 2, title: '素米 500g', name: 'Rice', image: '/image/s6.png', price: 0.03, num: 0, selected: true },
-      { sku: 3, title: '红枣 500g', name: 'Dates', image: '/image/s7.png', price: 0.05, num: 0, selected: true }
+      { sku: 0, title: 'Photoshop', name: 'photoshop', image: '/image/s4.png', price: 0.01, num: 0, selected: true },
+      { sku: 1, title: 'Lightroom', name: 'lightroom', image: '/image/s5.png', price: 0.25, num: 0, selected: true },
+      { sku: 2, title: 'Illustrator', name: 'illustrator', image: '/image/s6.png', price: 0.03, num: 0, selected: true },
+      { sku: 3, title: 'Invision', name: 'invision', image: '/image/s7.png', price: 0.05, num: 0, selected: true }
     ],
     orderList: []
   }

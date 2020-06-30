@@ -60,7 +60,7 @@ Page({
           image: item.image,
           name: item.title,
           count: item.num,
-          status: '待付款'
+          status: 'Pending Payment'
         })
         item.num = 0;
       }
