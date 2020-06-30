@@ -76,9 +76,10 @@
     height: 40rpx;
     line-height: 40rpx;
     border-radius: 50%;
-    background: #AB956D;
+    background: #FA0F00;
     color: #fff;
     font-size: 24rpx;
+    font-weight:bold;
 }
 .goods-box .goods-operation{
     position: relative;
@@ -89,9 +90,10 @@
     margin-bottom: 60rpx;
     box-sizing: border-box;
     border-radius: 50rpx;
-    background: #AB956D;
+    background: #FA0F00;
     color: #fff;
     font-size: 28rpx;
+    font-weight:bold;
 }
 .goods-operation text{
     display: inline-block;
@@ -119,13 +121,16 @@
 .goods-stock{
     font-size: 28rpx;
     margin-bottom: 20rpx;
+    color: #FA0F00;
 }
 .goods-title{
     font-size: 40rpx;
     margin-bottom: 30rpx;
+    color: #FA0F00;
 }
 .goods-price{
     font-size: 40rpx;
+    color: #FA0F00;
 }
 .goods-tab-nav{
     display: inline-block;
@@ -138,9 +143,10 @@
     color: #c7c7cb;
 }
 .goods-tab-nav.on{
-    color: #bcaa8a;
-    border-bottom: 5rpx solid #bcaa8a;
+    color: #FA0F00;
+    border-bottom: 5rpx solid #FA0F00;
 }
 .goods-content{
     padding: 40rpx;
+    color:#FA0F00;
 }

@@ -2,6 +2,7 @@
 
 .cart-box{
     padding-bottom: 100rpx;
+    color: #FA0F00;
 }
 .cart-list{
     position: relative;
@@ -76,8 +77,9 @@
     line-height: 90rpx;
     padding:0 100rpx 0 80rpx;
     box-sizing: border-box;
-    background: #AB956D;
+    background: #FA0F00;
     color: #fff;
+    font-weight:bold;
 }
 .total-select{
     position: absolute;

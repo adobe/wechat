@@ -12,9 +12,10 @@
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "零食商贩",
-    "navigationBarBackgroundColor": "#AB956D",
+    "navigationBarBackgroundColor": "#FA0F00",
     "backgroundColor": "#eeeeee",
-    "enablePullDownRefresh": true
+    "enablePullDownRefresh": true,
+    "fontWeight": "bold"
   },
   "tabBar": {
     "color": "#b7b7b7",

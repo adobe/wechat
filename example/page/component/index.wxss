@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     height: 50rpx;
-    color: #aaa;
+    color: #FA0F00;
     text-align: center;
     border: 1px solid #ddd;
     border-radius: 20rpx;
@@ -27,7 +27,7 @@ swiper-item image {
     width: 100%;
     padding:30rpx 0;
     height: 40rpx;
-    color: #AB956D;
+    color: #FA0F00;
     text-align: center;
 }
 .select-top-small{
@@ -56,6 +56,7 @@ swiper-item image {
     border-radius: 10px;
     text-align: center;
     background: #f5f6f5;
+    color: #FA0F00;
 }
 .newest-box .newest-list:nth-child(2n){
     margin-right: 0;

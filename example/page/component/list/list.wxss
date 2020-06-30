@@ -27,4 +27,5 @@
 .newest-list .newest-text{
     font-size: 32rpx;
     line-height: 45rpx;
+    color: #FA0F00;
 }
