@@ -21,7 +21,7 @@ Page({
                 url: '../details/details',
                 thumb: '/image/s4.png',
                 title: 'PhotoShop 7.0',
-                price: 998
+                price: 99
             },
             {
                 id: 2,

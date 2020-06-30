@@ -36,7 +36,7 @@
                 <navigator url="details/details?sku={{item.sku}}">
                     <image src="{{item.image}}"></image>
                     <view class="newest-text"><text>{{item.title}}</text></view>
-                    <view class="newest-text"><text>￥ {{item.price}}</text></view>
+                    <view class="newest-text"><text>$ {{item.price}}</text></view>
                 </navigator>
             </view>
         </view>

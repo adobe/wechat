@@ -6,7 +6,7 @@
           <view  class="orders-list">
             <image class="orders-thumb" src="{{item.image}}"></image>
             <view class="orders-pro-name">{{item.title}}</view>
-            <view class="orders-pro-price">￥{{item.price}}</view>
+            <view class="orders-pro-price">${{item.price}}</view>
             <view class="orders-count-num">×{{item.num}}</view>
           </view>
         </view>

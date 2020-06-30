@@ -18,7 +18,7 @@
         <image wx:if="{{show}}" src="/image/cart1.png" class="to-carts-icon"></image>
         <view class="goods-stock">{{goods.stock}}</view>
         <view class="goods-title">{{goods.title}}</view>
-        <view class="goods-price">￥ {{goods.price}}</view>
+        <view class="goods-price">$ {{goods.price}}</view>
     </view>
     <view class="goods-tab-box">
         <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">Product Details</view>
