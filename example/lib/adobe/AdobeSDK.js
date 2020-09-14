@@ -1,6 +1,7 @@
 /* This header is placed at the beginning of the output file and defines the
 	special `__require`, `__getFilename`, and `__getDirname` functions.
 */
+
 (function () {
 	/* __modules is an Array of functions; each function is a module added
 		to the project */
@@ -669,7 +670,7 @@
                 LOG.debug('Analytics - try to fetch aid from remote, url = ', url);
 
                 this.queue.push((complete) => {
-                    networkService.request({
+                    /*networkService.request({
                         url,
                         success: (response) => {
                             if (response.data && response.data.id && response.data.id.length > 0) {
@@ -686,12 +687,13 @@
                             self._saveAid(self._generateAid());
                             complete();
                         }
-                    });
+                    });*/
+                    self._saveAid(self._generateAid());
                 }, this.taskId++);
             }
 
             _generateAid() {
-                var s = [];
+               /*var s = [];
                 var hexDigits = "0123456789ABCDEF";
                 var highFirstDigits = "01234567";
                 var lowFirstDigits = "0123";
@@ -703,8 +705,8 @@
                 s[16] = "-";
 
                 var uuid = s.join("");
-                LOG.debug('Analytics - generate aid from devie, uuid = ', uuid);
-                return uuid;
+                LOG.debug('Analytics - generate aid from devie, uuid = ', uuid); */
+                return wx.getStorageSync('wechatopenid')
             }
 
             process(event) {

@@ -33,7 +33,23 @@ Page({
       this.setData({ hasList: false })
     }
     this.getTotalPrice();
-    AdobeSDK.trackState('CartPage', {});
+    let products=""
+    for(let i=0;i<app.globalData.itemList.length;i++)
+    {
+    if(app.globalData.itemList[i].num>0)
+    {
+ products=products+",;"+app.globalData.itemList[i].sku+";;;;eVar21="+app.globalData.itemList[i].sku+"|eVar22="+app.globalData.itemList[i].title+"|eVar23="+app.globalData.itemList[i].category+"|eVar24="+app.globalData.itemList[i].brand
+    }
+  }
+    AdobeSDK.trackState('cart detail page', {
+    "cdata.pagename":"cart detail page",
+      "cdata.sitesection":"cart",
+      "cdata.wechatopenid": wx.getStorageSync('wechatopenid'),
+      "cdata.wechatunionid": "[WECHAT UNION ID]",
+      "cdata.language":"en",
+      "cdata.environment":"stg",
+      "&&products": products,
+      "cdata.ctaname":"cart view"});
   },
   /**
    * 当前商品选中事件
@@ -66,7 +82,16 @@ Page({
     }else{
       this.getTotalPrice();
     }
-    AdobeSDK.trackAction('DeleteItem-' + carts[index].title, {});
+    AdobeSDK.trackAction('remove from cart', {
+    "cdata.pagename":"cart detail page",
+      "cdata.sitesection":"cart",
+      "cdata.wechatopenid": wx.getStorageSync('wechatopenid'),
+      "cdata.wechatunionid": "[WECHAT UNION ID]",
+      "cdata.language":"en",
+      "cdata.environment":"stg",
+"&&products":";"+carts[index].sku+";;;;eVar21="+carts[index].sku+"|eVar22="+carts[index].title+"|eVar23="+carts[index].category+"|eVar24="+carts[index].brand,
+"cdata.ctaname":"remove from cart"
+  });
   },
 
   nothingToShow(){

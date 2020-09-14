@@ -80,22 +80,22 @@
     width: 510rpx;
     padding-left: 30rpx;
     box-sizing: border-box;
-    color: #FA0F00;
+    color: #aa0000;
 }
 .orders-footer .orders-footer-btn{
     display: inline-block;
     width: 240rpx;
     text-align: center;
     color: #fff;
-    background: #FA0F00;
+    background: #aa0000;
     font-weight: bold;
 }
 .orders-pro-name{
-    color:#FA0F00;
+    color:#aa0000;
 }
 .orders-pro-price{
-    color:#FA0F00;
+    color:#aa0000;
 }
 .orders-count-num{
-    color:#FA0F00;
+    color:#aa0000;
 }

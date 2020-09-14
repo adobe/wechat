@@ -76,7 +76,7 @@
     height: 40rpx;
     line-height: 40rpx;
     border-radius: 50%;
-    background: #FA0F00;
+    background: #aa0000;
     color: #fff;
     font-size: 24rpx;
     font-weight:bold;
@@ -90,7 +90,7 @@
     margin-bottom: 60rpx;
     box-sizing: border-box;
     border-radius: 50rpx;
-    background: #FA0F00;
+    background: #aa0000;
     color: #fff;
     font-size: 28rpx;
     font-weight:bold;
@@ -121,16 +121,16 @@
 .goods-stock{
     font-size: 28rpx;
     margin-bottom: 20rpx;
-    color: #FA0F00;
+    color: #aa0000;
 }
 .goods-title{
     font-size: 40rpx;
     margin-bottom: 30rpx;
-    color: #FA0F00;
+    color: #aa0000;
 }
 .goods-price{
     font-size: 40rpx;
-    color: #FA0F00;
+    color: #aa0000;
 }
 .goods-tab-nav{
     display: inline-block;
@@ -143,10 +143,10 @@
     color: #c7c7cb;
 }
 .goods-tab-nav.on{
-    color: #FA0F00;
-    border-bottom: 5rpx solid #FA0F00;
+    color: #aa0000;
+    border-bottom: 5rpx solid #aa0000;
 }
 .goods-content{
     padding: 40rpx;
-    color:#FA0F00;
+    color:#aa0000;
 }

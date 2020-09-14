@@ -24,9 +24,54 @@ Page({
     duration: 800,
     itemList: app.globalData.itemList
   },
+     
   onLoad: function(){
+         
   },
   onShow: function(){
-    AdobeSDK.trackState('HomePage', {});
-  }
+    AdobeSDK.trackState("home",{
+      "cdata.pagename":"home",
+      "cdata.sitesection":"home",
+      "cdata.wechatopenid": wx.getStorageSync('wechatopenid'),
+      "cdata.wechatunionid": "[WECHAT UNION ID]",
+      "cdata.location":"[LATITUDE|LONGITUDE]",
+      "cdata.language":"en",
+      "cdata.environment":"stg"});
+      },
+searchClick: function(){
+  AdobeSDK.trackAction('proceed to search', {
+    "cdata.pagename":"home",
+      "cdata.sitesection":"home",
+      "cdata.wechatopenid": wx.getStorageSync('wechatopenid'),
+      "cdata.wechatunionid": "[WECHAT UNION ID]",
+      "cdata.language":"en",
+      "cdata.environment":"stg",
+      "cdata.ctaname": "proceed to search"});
+},
+hotSelectionsClick: function(){
+  AdobeSDK.trackAction('internal banner click', {
+    "cdata.pagename":"home",
+      "cdata.sitesection":"home",
+      "cdata.wechatopenid": wx.getStorageSync('wechatopenid'),
+      "cdata.wechatunionid": "[WECHAT UNION ID]",
+      "cdata.language":"en",
+      "cdata.environment":"stg",
+      "cdata.bannerCode":"product listing banner",
+      "cdata.bannerGroup":"hot selections",
+      "cdata.ctaname":"internal banner click"
+    });
+},
+newArrivalsClick: function(){
+  AdobeSDK.trackAction('internal banner click', {
+    "cdata.pagename":"home",
+      "cdata.sitesection":"home",
+      "cdata.wechatopenid": wx.getStorageSync('wechatopenid'),
+      "cdata.wechatunionid": "[WECHAT UNION ID]",
+      "cdata.language":"en",
+      "cdata.environment":"stg",
+      "cdata.bannerCode": "product detail banner",
+      "cdata.bannerGroup":"new arrivals",
+      "cdata.ctaname":"internal banner click"
+    });
+}
 })

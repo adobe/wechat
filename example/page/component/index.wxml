@@ -6,7 +6,8 @@
             </swiper-item>
         </block>
     </swiper> -->
-    <view class="search">
+    <!--<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">Get user information</button>-->
+    <view class="search" bindtap="searchClick">
         <navigator url="search/search">
             <view class="search-text">
                 <icon class="weui-icon-search_in-box search-icon" type="search" size="14"></icon>
@@ -17,12 +18,12 @@
     <view class="selected">
         <view class="select-title"><text>Hot Selections</text></view>
         <view class="select-top">
-            <view class="select-top-small">
+            <view class="select-top-small" bindtap="hotSelectionsClick">
                 <navigator url="list/list">
                     <image src="/image/s1.png"></image>
                 </navigator>
             </view>
-            <view class="select-top-small">
+            <view class="select-top-small" bindtap="hotSelectionsClick">
                 <navigator url="list/list">
                     <image src="/image/s2.png"></image>
                 </navigator>
@@ -32,7 +33,7 @@
     <view class="newest">
         <view class="newest-title"><text>New Arrivals</text></view>
         <view class="newest-box">
-            <view class="newest-list" wx:for="{{itemList}}" wx:key="{{index}}">
+            <view class="newest-list" wx:for="{{itemList}}" wx:key="{{index}}" bindtap="newArrivalsClick">
                 <navigator url="details/details?sku={{item.sku}}">
                     <image src="{{item.image}}"></image>
                     <view class="newest-text"><text>{{item.title}}</text></view>

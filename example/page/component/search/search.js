@@ -9,6 +9,7 @@ the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTA
 OF ANY KIND, either express or implied. See the License for the specific language
 governing permissions and limitations under the License.
 */
+import AdobeSDK from '../../.././lib/adobe/AdobeSDK.js'
 
 let timeId = null;
 Page({
@@ -67,6 +68,16 @@ Page({
             showResult: true
         })
         this.historyHandle(text);
+        AdobeSDK.trackAction("search",{
+            "cdata.pagename":"search",
+            "cdata.sitesection":"search",
+            "cdata.wechatopenid": wx.getStorageSync('wechatopenid'),
+            "cdata.wechatunionid": "[WECHAT UNION ID]",
+            "cdata.location":"[LATITUDE|LONGITUDE]",
+            "cdata.language":"en",
+            "cdata.environment":"stg",
+            "cdata.searchTerm": text,
+            "cdata.ctaname": "search"});
     },
     historyHandle(value) {
         let history = this.data.history;
@@ -93,5 +104,13 @@ Page({
             })
             console.log(this.data.history);
         }
-    }
+        AdobeSDK.trackState("search",{
+            "cdata.pagename":"search",
+            "cdata.sitesection":"search",
+            "cdata.wechatopenid": wx.getStorageSync('wechatopenid'),
+            "cdata.wechatunionid": "[WECHAT UNION ID]",
+            "cdata.location":"[LATITUDE|LONGITUDE]",
+            "cdata.language":"en",
+            "cdata.environment":"stg"});
+                }
 })

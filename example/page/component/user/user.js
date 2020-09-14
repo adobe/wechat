@@ -27,13 +27,29 @@ Page({
     this.setData({
       orders: app.globalData.orderList
     });
-    AdobeSDK.trackState('UserPage', {});
+    AdobeSDK.trackState('order success page', {
+      "cdata.pagename":"order success page",
+        "cdata.sitesection":"order",
+        "cdata.wechatopenid": wx.getStorageSync('wechatopenid'),
+        "cdata.wechatunionid": "[WECHAT UNION ID]",
+        "cdata.language":"en",
+        "cdata.environment":"stg",
+        "cdata.ctaname": "order success"
+          });
   },
   /**
    * 发起支付请求
    */
   payOrders(){
-    AdobeSDK.trackAction('Pay', {});
+    AdobeSDK.trackAction('proceed to pay', {
+      "cdata.pagename":"order success page",
+        "cdata.sitesection":"order",
+        "cdata.wechatopenid": wx.getStorageSync('wechatopenid'),
+        "cdata.wechatunionid": "[WECHAT UNION ID]",
+        "cdata.language":"en",
+        "cdata.environment":"stg",
+        "cdata.ctaname": "proceed to pay"
+    });
     let flag = wx.getSystemInfoSync().brand === 'devtools'?false:true
     console.log(flag)
     if (flag){

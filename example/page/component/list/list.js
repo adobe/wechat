@@ -24,7 +24,13 @@ Page({
     // 页面渲染完成
   },
   onShow:function(){
-    AdobeSDK.trackState('ListPage', {});
+    AdobeSDK.trackState('product list page', {
+      "cdata.pagename":"product list page",
+        "cdata.sitesection":"plp",
+        "cdata.wechatopenid": wx.getStorageSync('wechatopenid'),
+        "cdata.wechatunionid": "[WECHAT UNION ID]",
+        "cdata.language":"en",
+        "cdata.environment":"stg",});
   },
   onHide:function(){
     // 页面隐藏

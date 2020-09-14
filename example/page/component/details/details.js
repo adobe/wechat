@@ -39,8 +39,17 @@ Page({
         service: 'Returning goods service is unsupported.'
       }
     });
-    AdobeSDK.trackState('ProductPage-' + item.name, {});
-  },
+    AdobeSDK.trackState("pdp:" + item.title,{
+      "cdata.pagename":"pdp:" + item.title,
+      "cdata.sitesection":"pdp",
+      "cdata.wechatopenid": wx.getStorageSync('wechatopenid'),
+      "cdata.wechatunionid": "[WECHAT UNION ID]",
+      "cdata.language":"en",
+      "cdata.environment":"stg",
+      "cdata.productFindingMethod":"[PRODUCT FINDING METHOD]",
+"&&products":";"+item.sku+";;;;eVar21="+item.sku+"|eVar22="+item.title+"|eVar23="+item.category+"|eVar24="+item.brand,
+"cdata.ctaname":"product view"});
+      },
 
   addCount() {
     let num = this.data.num;
@@ -79,7 +88,10 @@ Page({
         })
       }, 200)
     }, 300)
-
+    AdobeSDK.trackAction('add to cart',{
+      "cdata.cartAddValue":this.data.goods.price,
+      "&&products":";"+this.data.goods.sku+";;;;eVar21="+this.data.goods.sku+"|eVar22="+this.data.goods.title+"|eVar23="+this.data.goods.category+"|eVar24="+this.data.goods.brand,
+      "cdata.ctaname":"add to cart"});    
   },
   addToCart(){
     if(this.data.totalNum>0){
@@ -90,8 +102,7 @@ Page({
         url: '/page/component/cart/cart'
       })
     }
-    AdobeSDK.trackAction('AddToCart',{})
-    
+       
   },
   bindTap(e) {
     const index = parseInt(e.currentTarget.dataset.index);
