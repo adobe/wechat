@@ -44,11 +44,13 @@ App({
         wx.request({
           url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx509b0a684661746b&secret=7f7a67a9b7670e5e1ae0e2b8071c3b0a&grant_type=authorization_code&js_code=' + logres.code, 
           success (res) {
-            console.log(res.data);
+            console.log("getting openID===>"+res.data.openid);
+            var openId = res.data.openid;
+            wx.setStorageSync('wechatopenid', openId)
             wx.getUserInfo({
               withCredentials: true,
               success: infores => {
-                console.log("infores.encryptedData:" + infores.encryptedData)
+                console.log("infores.encryptedData===>" + infores.encryptedData)
                 console.log("infores.iv:" + infores.iv)
                 userInfo_encryptedData = infores.encryptedData
                 userInfo_iv = infores.iv
@@ -68,7 +70,7 @@ App({
 
                 //Send Adobe trackAction call after Wechat Open ID is set in local storage 
                 AdobeSDK.trackAction("Start", {
-                  "cdata.wechatopenid": wx.getStorageSync('wechatopenid')
+                  "wechatopenid": wx.getStorageSync('wechatopenid')
                 });
               }
             });

@@ -90,6 +90,7 @@ Page({
     }, 300)
     AdobeSDK.trackAction('add to cart',{
       "cdata.cartAddValue":this.data.goods.price,
+      "cdata.wechatopenid": wx.getStorageSync('wechatopenid'),
       "&&products":";"+this.data.goods.sku+";;;;eVar21="+this.data.goods.sku+"|eVar22="+this.data.goods.title+"|eVar23="+this.data.goods.category+"|eVar24="+this.data.goods.brand,
       "cdata.ctaname":"add to cart"});    
   },
