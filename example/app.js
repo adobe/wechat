@@ -15,16 +15,17 @@ const AdobeSDK = require('./lib/adobe/AdobeSDK.js');
 App({
   onLaunch(options) {
     // try{
-    AdobeSDK.setDebugLoggingEnabled(true)
-    AdobeSDK.setDebugModeEnabled(true);
-    AdobeSDK.init({
-      "analytics.server": "test.sc.adobedc.cn",
-      "analytics.rsids": "zhouchun-adobe-miniprogram",
-      "app.id": "adobe-demo",
-      "app.version": "0.0.0.3",
-      "analytics.offlineEnabled": true,
-      "session.timeout": 5
-    });
+
+      AdobeSDK.setDebugLoggingEnabled(true);
+      AdobeSDK.setDebugModeEnabled(true);
+      AdobeSDK.init({
+        "analytics.server": "test.sc.adobedc.cn",
+        "analytics.rsids": "zhouchun-adobe-miniprogram",
+        "app.id": "adobe-demo",
+        "app.version": "0.0.0.3",
+        "analytics.offlineEnabled": true,
+        "session.timeout": 5
+      });
     // let count = 20;
     // while(count>0){
     //   AdobeSDK.trackAction("Start", { "example.key": "value" })
@@ -33,23 +34,27 @@ App({
     const self = this;
     var userInfo_iv
     var userInfo_encryptedData;
- 
     //Login
     wx.login({
-      success: logres => {
-        console.log("logres:");
-        console.log(logres);
+      success: function(logres) {
         console.log("logres.code:" + logres.code);
 
         wx.request({
-          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx509b0a684661746b&secret=7f7a67a9b7670e5e1ae0e2b8071c3b0a&grant_type=authorization_code&js_code=' + logres.code, 
+          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=wx13eb61a36d45bec4&secret=cfe2b30fd11e07cfc9ae20b3051b8d70&grant_type=authorization_code&js_code=' + logres.code, 
           success (res) {
-            console.log("getting openID===>"+res.data.openid);
+            console.log("full load of data===>::");
+            for(var kk in res.data){
+              console.log(kk + "="+res.data[kk]);
+            }
             var openId = res.data.openid;
-            wx.setStorageSync('wechatopenid', openId)
+            wx.setStorageSync('wechatopenid', openId);
+
+            AdobeSDK.trackAction("Start", {
+              "wechatopenid": wx.getStorageSync('wechatopenid')
+            });
             wx.getUserInfo({
               withCredentials: true,
-              success: infores => {
+              success: function(infores) {
                 console.log("infores.encryptedData===>" + infores.encryptedData)
                 console.log("infores.iv:" + infores.iv)
                 userInfo_encryptedData = infores.encryptedData
@@ -67,11 +72,7 @@ App({
                 var wechatopenid = JSON.parse(data).openId
                 //Set WeChat Open ID in local storage
                  wx.setStorageSync('wechatopenid', wechatopenid)
-
                 //Send Adobe trackAction call after Wechat Open ID is set in local storage 
-                AdobeSDK.trackAction("Start", {
-                  "wechatopenid": wx.getStorageSync('wechatopenid')
-                });
               }
             });
           }
