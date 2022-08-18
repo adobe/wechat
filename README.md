@@ -2,8 +2,8 @@
  
 # Adobe Exprience Platform Wechat Mini Program SDK
 
-** IMPORTANT: End of support for Adobe Experience Platform Mobile SDK for WeChat Mini Programs
-Effective March 30, 2022, support for Adobe Experience Platform Mobile SDKs for WeChat Mini Programs is no longer active. While you may continue using our libraries, Adobe no longer plans to update, modify, or provide support for these libraries. Please contact your Adobe CSM for details. **
+**IMPORTANT: End of support for Adobe Experience Platform Mobile SDK for WeChat Mini Programs
+Effective March 30, 2022, support for Adobe Experience Platform Mobile SDKs for WeChat Mini Programs is no longer active. While you may continue using our libraries, Adobe no longer plans to update, modify, or provide support for these libraries. Please contact your Adobe CSM for details.**
 
 ### Introduction
 
