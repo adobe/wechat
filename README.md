@@ -1,9 +1,6 @@
- ⛔️  DEPRECATED ⛔️ 
- 
 # Adobe Exprience Platform Wechat Mini Program SDK
 
-**IMPORTANT: End of support for Adobe Experience Platform Mobile SDK for WeChat Mini Programs
-Effective March 30, 2022, support for Adobe Experience Platform Mobile SDKs for WeChat Mini Programs is no longer active. While you may continue using our libraries, Adobe no longer plans to update, modify, or provide support for these libraries. Please contact your Adobe CSM for details.**
+**This SDK is available as an open source project under an Apache License 2.0 - see LICENSE.md for further detail. The SDK is provided on an as-is basis, without warranty.**
 
 ### Introduction
 
